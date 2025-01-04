@@ -11,6 +11,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      screens: {
+        'xs': '640px', // Añadir el punto de corte xs si es necesario
+      },
     },
   },
   plugins: [],
