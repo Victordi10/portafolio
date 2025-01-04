@@ -1,7 +1,8 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
+import Header from "./ui/Header";
+import Head from 'next/head';
 
 export const metadata = {
   title: 'Vytor - mi portafolio',
@@ -11,32 +12,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
-      <body>
+      <Head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <body className="bg-gray-950 w-full p-5">
         {/* Encabezado */}
-        <header>
-          <h1 style={{ textAlign: 'center', padding: '2rem 0', color: '#fff' }}>
-            Vytor - mi portafolio
-          </h1>
-          <nav>
-            <ul style={{ display: 'flex', gap: '1rem', listStyle: 'none' }}>
-              <li>
-                <Link href="/">Inicio</Link>
-              </li>
-              <li>
-                <Link href="/about">Sobre mí</Link>
-              </li>
-              <li>
-                <Link href="/services">Servicios</Link>
-              </li>
-              <li>
-                <Link href="/contact">Contacto</Link>
-              </li>
-            </ul>
-          </nav>
-        </header>
+        <Header />
 
         {/* Contenido dinámico (cambia según la página) */}
-        <main style={{ padding: 0, color: '#fff' }}>
+        <main style={{ padding: 10, margin:0, color: '#fff' }}>
           {children}
         </main>
 

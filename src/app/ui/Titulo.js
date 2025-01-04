@@ -9,11 +9,11 @@ export default function Titulo({ titulo }) {
                 text-4xl text-center 
                 font-bold text-transparent 
                 bg-clip-text 
-                bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 
+                bg-gradient-to-r from-gray-500 via-slate-500 to-white-500 
                 shadow-lg 
                 hover:shadow-xl 
                 transition-all duration-500 ease-in-out 
-                transform hover:scale-110"
+                transform hover:scale-[1.01]"
         >
             {titulo}
         </h2>
