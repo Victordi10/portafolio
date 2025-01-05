@@ -6,7 +6,7 @@ const Parrafo = ({ children, className = "" }) => {
     return (
         <p className={`
             ${className}
-            text-lg 
+            text-base
             text-gray-300 
             text-justify 
             leading-8 
@@ -15,8 +15,9 @@ const Parrafo = ({ children, className = "" }) => {
             transition-all 
             duration-300 
             ease-in-out 
-            hover:text-gray-100 
+            hover:text-white 
             focus:outline-none
+            w-full
         `}>
             {children}
         </p>

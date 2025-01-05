@@ -5,45 +5,22 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export default function Header() {
-    // Estado para controlar la visibilidad del menú en pantallas pequeñas
     const [menuOpen, setMenuOpen] = useState(false);
+    const classLink = "hover:text-yellow-400 text-lg transition-colors duration-300 ease-in-out"
 
-    // Función para alternar el estado del menú
-    const toggleMenu = () => {
-        setMenuOpen(!menuOpen);
-    };
-
-    return (
-        <header className="flex items-center justify-between p-2 w-full px-2 sm:px-12 bg-gradient-to-r from-gray-950 via-gray-950 to-gray-950 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500 ease-in-out transform hover:scale-[1.01] relative">
-            <Image
-                src="/vy.svg"
-                alt="Desarrollador de software"
-                width={70}
-                height={70}
-                className={`rounded-full border-4 border-white p-2 py-3 ${menuOpen ? 'hidden' : 'block'} sm:block`}
-            />
-
-            {/* Botón Burger */}
-            <div className="sm:hidden">
-                <button onClick={toggleMenu} className="text-white text-3xl">
-                    {menuOpen ? 'X' : '☰'}
-                </button>
-            </div>
-
-            {/* Menú de navegación */}
-            <nav className={`w-[70%] md:w-[50%] ${menuOpen ? 'flex order-first' : 'hidden'} sm:flex sm:order-3`}>
-            <ul
-                className={`list-none text-white text-lg font-semibold 
-                    justify-between
-                    w-full
-                    ${menuOpen ? 'flex flex-col' : 'hidden'} 
-                    sm:flex-row sm:flex // Mantener en fila en pantallas medianas
-                    md:flex`} // Siempre visible en pantallas grandes
-            >
+    const Menu = ({ navclass, listClass = 'flex', linkClass = classLink }) => {
+        return (
+            <nav className={`${navclass} sm:w-[60%] md:w-[50%]`}>
+                <ul
+                    className={`list-none text-white text-lg font-semibold 
+                        w-full
+                        ${listClass}
+                        `} // Siempre visible en pantallas grandes
+                >
                     <li>
                         <Link
                             href="/"
-                            className="hover:text-yellow-400 transition-colors duration-300 ease-in-out"
+                            className={`${linkClass}`}
                         >
                             Inicio
                         </Link>
@@ -51,7 +28,7 @@ export default function Header() {
                     <li>
                         <Link
                             href="/about"
-                            className="hover:text-yellow-400 transition-colors duration-300 ease-in-out"
+                            className={`${linkClass}`}
                         >
                             Sobre mí
                         </Link>
@@ -59,7 +36,7 @@ export default function Header() {
                     <li>
                         <Link
                             href="/services"
-                            className="hover:text-yellow-400 transition-colors duration-300 ease-in-out"
+                            className={`${linkClass}`}
                         >
                             Servicios
                         </Link>
@@ -67,13 +44,51 @@ export default function Header() {
                     <li>
                         <Link
                             href="/contact"
-                            className="hover:text-yellow-400 transition-colors duration-300 ease-in-out"
+                            className={`${linkClass}`}
                         >
                             Contacto
                         </Link>
                     </li>
                 </ul>
             </nav>
+        );
+    };
+
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
+    };
+
+    return (
+        <header className="flex items-center w-full bg-gradient-to-r from-gray-950 via-gray-950 to-gray-950 rounded-lg shadow-lg flex-col sm:flex-row ">
+            <div className="flex items-center justify-between p-2 w-full px-4 sm:px-12 bg-gradient-to-r from-gray-950 via-gray-950 to-gray-950 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500 ease-in-out transform hover:scale-[1.01]">
+                <Image
+                    src="/vy.svg"
+                    alt="Desarrollador de software"
+                    width={70}
+                    height={70}
+                    className="rounded-full border-4 border-white p-2 py-3"
+                />
+
+                {/* Botón Burger */}
+                <div className="sm:hidden">
+                    <button onClick={toggleMenu} className="text-white text-3xl">
+                        {menuOpen ? 'X' : '☰'}
+                    </button>
+                </div>
+
+                <Menu navclass={'hidden sm:flex'} listClass="justify-between sm:flex-row sm:flex" />
+            </div>
+
+            {/* Menú con animación */}
+            <div
+                className={`sm:hidden w-full bg-gray-950 transition-all duration-300 ease-in-out overflow-hidden ${
+                    menuOpen
+                        ? 'max-h-[500px] opacity-100 scale-y-100'
+                        : 'max-h-0 opacity-0 scale-y-0'
+                }`}
+            >
+                <Menu listClass={`flex flex-col w-full space-y-2 min-h-fit p-4`} />
+            </div>
         </header>
     );
 }
