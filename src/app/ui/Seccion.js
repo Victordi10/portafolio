@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Titulo from "./Titulo";
 
-export default function Seccion({ titulo = false, children, className, classTitulo }) {
+export default function Seccion({ titulo = false, cover = false, children, className, classTitulo }) {
     return (
         <section
             className={`
@@ -22,13 +22,15 @@ export default function Seccion({ titulo = false, children, className, classTitu
                 transition-all duration-500 ease-in-out 
                 transform 
             `}>
-            {titulo && (
-                <Titulo
-                    titulo={titulo}
-                    className={classTitulo}
-                />
-            )}
-            <div className="text-white text-lg">{children}</div>
+            <div className={`text-white text-lg w-full flex-1 ${cover ? 'bg-gradient-to-t from-[rgba(3,7,18,0.5)]  via-[rgba(3,7,18,0.5)] to-[rgba(3,7,18,0.7)]' : ''}`}>
+                {titulo && (
+                    <Titulo
+                        titulo={titulo}
+                        className={classTitulo}
+                    />
+                )}
+                {children}
+            </div>
         </section>
     );
 }

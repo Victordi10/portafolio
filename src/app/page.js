@@ -5,11 +5,13 @@ import Image from "next/image";
 import Seccion from "./ui/Seccion";
 import Boton from "./ui/Boton";
 import Parrafo from "./ui/Parrafo";
+import Contacto from "./ui/Contacto";
 import Redes from "./ui/Redes";
 import { FaAngleDown } from 'react-icons/fa';
 import { RiArrowDownWideFill } from "react-icons/ri";
 import Servicio from "./ui/Servicio";
 import Portafolio from "./ui/Portafolio";
+import { FaLinkedin, FaGithub, FaTwitter, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 
 
 export default function Home() {
@@ -56,8 +58,8 @@ export default function Home() {
 
   return (
     <>
-      <Seccion titulo="Sobre mí" classTitulo={'text-black mb-8 sm:mb-10'} className={`relative bg-[url('/foto.jpeg')] bg-cover bg-center bg-no-repeat sm:bg-gray-950 sm:bg-[url('')]`}>
-        <div className=' inset-0 bg-gradient-to-b from-[rgba(3,7,18,0.5)]  via-[rgba(3,7,18,0.6)] to-[rgba(3,7,18,0.7)] p-3 flex flex-col sm:flex-row items-center justify-center sm:space-x-16
+      <Seccion titulo="Sobre mí" cover={true} classTitulo={'text-black mb-8 sm:mb-10'} className={`relative bg-[url('/foto.jpeg')] bg-cover bg-center bg-no-repeat p-0 sm:bg-gray-950 sm:bg-[url('')]`}>
+        <div className='p-3 flex flex-col sm:flex-row items-center justify-center sm:space-x-16
         '>
           <Image
             src="/foto.jpeg"
@@ -72,7 +74,7 @@ export default function Home() {
         </div>
       </Seccion>
 
-      <Portafolio setIsPaused={setIsPaused} isModalOpen={isModalOpen} slide={slide} images={images} portafolioGalery={portafolioGalery} toggleModal={toggleModal} isPaused={isPaused} setSlide={setSlide} selectedProject={selectedProject} handleProjectClick={handleProjectClick}/>
+      <Portafolio setIsPaused={setIsPaused} isModalOpen={isModalOpen} slide={slide} images={images} portafolioGalery={portafolioGalery} toggleModal={toggleModal} isPaused={isPaused} setSlide={setSlide} selectedProject={selectedProject} handleProjectClick={handleProjectClick} />
 
       <Seccion titulo="Servicios" classTitulo={'mb-4'}>
         <p className="text-lg sm:text-xl text-center text-gray-300 mb-6">
@@ -87,9 +89,7 @@ export default function Home() {
         </div>
       </Seccion>
 
-      <Seccion titulo="Contacto">
-        <p>Bienvenido a mi portafolio personal. Soy un desarrollador de software apasionado por la tecnología y el diseño web.</p>
-      </Seccion>
+      <Contacto />
     </>
   );
 }
