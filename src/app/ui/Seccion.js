@@ -9,20 +9,22 @@ export default function Seccion({ titulo = false, cover = false, children, class
             className={`
                 ${className}
                 h-auto
-                p-2 sm:p-6 
+                p-4 sm:p-6 
                 w-full 
                 flex 
                 flex-col
-                m-1 
+                mb-10
                 items-center 
                 justify-center 
                 rounded-xl 
-                shadow-xl 
+                shadow-2xl 
                 hover:shadow-2xl 
                 transition-all duration-500 ease-in-out 
                 transform 
+
+                bg-gray-950
             `}>
-            <div className={`text-white text-lg w-full flex-1 ${cover ? 'bg-gradient-to-t from-[rgba(3,7,18,0.5)]  via-[rgba(3,7,18,0.5)] to-[rgba(3,7,18,0.7)]' : ''}`}>
+            <div className={`text-white text-lg w-full flex flex-col items-start justify-between flex-1 ${cover ? 'bg-gradient-to-t from-[rgba(3,7,18,0.5)]  via-[rgba(3,7,18,0.5)] to-[rgba(3,7,18,0.7)]' : ''}`}>
                 {titulo && (
                     <Titulo
                         titulo={titulo}

@@ -12,73 +12,48 @@ import Boton from "./Boton";
 import Parrafo from "./Parrafo";
 import Redes from "./Redes";
 
-export default function Portafolio({ setIsPaused, handleProjectClick, isModalOpen, slide, images, portafolioGalery, toggleModal, isPaused, setSlide, selectedProject }) {
+
+
+export default function Portafolio({ isModalOpen, toggleModal }) {
+
+    const bysitePro = {
+        title: 'Bysite Pro',
+        images: '/bysite4.png',
+        description: `Bysite Pro fue una solución integral de desarrollo web diseñada para emprendedores. Ofrecía 
+        plataformas de comercio electrónico personalizadas, combinando un diseño atractivo con funcionalidad robusta.`,
+    };
+
+    const boricue = {
+        title: 'Boricue',
+        images: '/boricue1.png',
+        description: `Boricue es una app conceptual destinada a promover la cultura local a través de una plataforma 
+        innovadora. Enfocada en destacar negocios regionales y fomentar el crecimiento de pequeñas empresas.`,
+    };
     return (
-        <section className="flex flex-col sm:flex-row w-full sm:p-6">
-            {/* Columna izquierda con texto y lista */}
-            <Seccion className="w-full sm:w-1/2 p-4" titulo='Portafolio'>
-                <div className="h-full">
-                    <Parrafo className="mb-4">
-                        Bienvenido a mi portafolio personal. Soy un desarrollador de software apasionado por la tecnología y el diseño web.
-                    </Parrafo>
-                    <ul className="space-y-2">
-                        {portafolioGalery.map((project, index) => (
-                            <li
-                                key={index}
-                                onClick={() => handleProjectClick(index)}
-                                className={`cursor-pointer hover:text-indigo-500 transition ${selectedProject === index ? 'text-indigo-500 font-bold' : ''
-                                    }`}
-                            >
-                                Proyecto {index + 1} - {project.title}
-                            </li>
-                        ))}
-                    </ul>
+        <Seccion className="flex flex-col w-full p-4 sm:p-6" titulo={'Proyectos'}>
+            {/* Proyecto Bysite Pro */}
+            <div className="flex flex-col my-16 sm:flex-row items-center gap-10">
+                <div className="w-full sm:w-1/2">
+                    <img alt={bysitePro.title} src={bysitePro.images} className="w-full rounded-lg"/>
                 </div>
-            </Seccion>
-
-            {/* Columna derecha con la imagen */}
-            <div className="sm:w-1/2 h-[50vh] relative">
-                {images[slide].endsWith('.mp4') ? (
-                    <video
-                        src={`/${images[slide]}`}
-                        className="object-contain w-full h-full cursor-pointer"
-                        autoPlay
-                        muted
-                        loop
-                        onClick={toggleModal}
-                    />
-                ) : (
-                    <Image
-                        src={`/${images[slide]}`}
-                        fill
-                        alt={`Slide ${slide}`}
-                        className="object-contain w-full h-full cursor-pointer"
-                        onClick={toggleModal}
-                    />
-                )}
-
-                {/* Controles del slider */}
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-4">
-                    <button
-                        onClick={() => setSlide((prevSlide) => (prevSlide - 1 + images.length) % images.length)}
-                        className="bg-gray-800 text-white px-3 py-1 rounded hover:bg-gray-700 transition"
-                    >
-                        <IoIosArrowBack size={35} color="#fff" />
-                    </button>
-                    <button
-                        onClick={() => setIsPaused(!isPaused)}
-                        className="bg-gray-800 text-white px-3 py-1 rounded hover:bg-gray-700 transition"
-                    >
-                        {isPaused ? <FiPlay size={35} color='#fff' /> : <TfiControlPause size={35} color='#fff' />}
-                    </button>
-                    <button
-                        onClick={() => setSlide((prevSlide) => (prevSlide + 1) % images.length)}
-                        className="bg-gray-800 text-white px-3 py-1 rounded hover:bg-gray-700 transition"
-                    >
-                        <IoIosArrowForward size={35} color="#fff" />
-                    </button>
+                <div className="w-full sm:w-1/2 space-y-4">
+                    <h3 className="text-2xl font-bold text-white">{bysitePro.title}</h3>
+                    <Parrafo className="text-gray-400 ">{bysitePro.description}</Parrafo>
                 </div>
             </div>
+
+            {/* Proyecto Boricue */}
+            <div className="flex flex-col sm:flex-row items-center gap-10">
+                <div className="w-full sm:w-1/2">
+                    <img alt={boricue.title} src={boricue.images} className="w-full rounded-lg" />
+                </div>
+                <div className="w-full sm:w-1/2 space-y-4">
+                    <h3 className="text-2xl font-bold text-white">{boricue.title}</h3>
+                    <Parrafo className="text-gray-400">{boricue.description}</Parrafo>
+                </div>
+            </div>
+
+
 
             {/* Modal para zoom */}
             {isModalOpen && (
@@ -94,7 +69,7 @@ export default function Portafolio({ setIsPaused, handleProjectClick, isModalOpe
                         <IoMdClose size={35} color="#fff" />
                     </button>
 
-                    {images[slide].endsWith('.mp4') ? (
+                    {/*  {images[slide].endsWith('.mp4') ? (
                         <video
                             src={`/${images[slide]}`}
                             className="max-w-full max-h-full"
@@ -109,10 +84,10 @@ export default function Portafolio({ setIsPaused, handleProjectClick, isModalOpe
                             alt={`Slide ${slide}`}
                             className="object-contain"
                         />
-                    )}
+                    )} */}
                 </div>
             )}
-        </section>
+        </Seccion>
 
     );
 }

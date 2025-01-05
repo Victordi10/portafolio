@@ -4,7 +4,7 @@ import Seccion from './Seccion';
     const Contacto = () => {
         const claseA = 'flex items-center space-x-2 text-gray-100 hover:text-slate-600 transition'
         return (
-            <Seccion titulo="Contacto" cover={true} className={`bg-cover p-0 bg-center bg-[url('/image.jpg')] sm:bg-[url('')] w-full`}>
+            <Seccion titulo="Contacto" cover={true} className={`bg-cover mb-0 p-0 bg-center bg-[url('/image.jpg')] sm:bg-[url('')] w-full`}>
                 <div className="flex flex-col w-full sm:flex-row ">
                     {/* Contenedor izquierdo */}
                     <div className="sm:w-1/2 justify-center items-center hidden sm:block ">

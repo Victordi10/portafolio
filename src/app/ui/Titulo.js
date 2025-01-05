@@ -8,13 +8,9 @@ export default function Titulo({ titulo, className }) {
             className={`
                 ${className}
                 text-4xl text-center 
-                mb-16
-                font-bold text-transparent 
-                bg-clip-text 
-                 sm:text-transparent
-                bg-gradient-to-r  from-gray-100 via-gray-300 to-slate-200
-                shadow-lg 
+                font-bold text-indigo-100 
                 hover:shadow-xl 
+                m-auto
                 transition-all duration-500 ease-in-out 
                 transform hover:scale-[1.01]`}
         >

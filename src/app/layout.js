@@ -17,12 +17,12 @@ export default function RootLayout({ children }) {
         <meta name="description" content={metadata.description} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <body className="bg-gray-950 w-full p-1 items-center justify-center">
+      <body className=" bg-[rgb(3,8,17)] w-full  items-center justify-center">
         {/* Encabezado */}
         <Header />
 
         {/* Contenido dinámico (cambia según la página) */}
-        <main className="w-full flex flex-col  items-center justify-center">
+        <main className="w-full  flex flex-col  items-center justify-center">
         {children}
         </main>
 

@@ -93,7 +93,6 @@ export default function Header() {
             >
                 <Menu listClass={`flex flex-col w-full space-y-2 min-h-fit p-4`} />
             </div>
-            <Cover />
             </div>
         </header>
     );
