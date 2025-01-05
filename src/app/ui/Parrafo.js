@@ -7,6 +7,7 @@ const Parrafo = ({ children, className = "" }) => {
         <p className={`
             ${className}
             text-base
+            sm:text-lg
             text-gray-300 
             text-justify 
             leading-8 

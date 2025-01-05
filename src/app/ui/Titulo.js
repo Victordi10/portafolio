@@ -10,9 +10,12 @@ export default function Titulo({ titulo, className }) {
                 text-4xl text-center 
                 font-bold text-indigo-100 
                 hover:shadow-xl 
-                m-auto
                 transition-all duration-500 ease-in-out 
-                transform hover:scale-[1.01]`}
+                transform hover:scale-[1.01]
+                sm:m-4
+                px-2 sm:p-6 
+                `}
+                
         >
             {titulo}
         </h2>

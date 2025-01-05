@@ -22,13 +22,14 @@ export default function RootLayout({ children }) {
         <Header />
 
         {/* Contenido dinámico (cambia según la página) */}
-        <main className="w-full  flex flex-col  items-center justify-center">
+        <main className="w-full  flex flex-col gap-12 sm:p-10 p-6  items-center justify-center">
         {children}
         </main>
 
         {/* Pie de página */}
-        <footer style={{ textAlign: 'center', marginTop: '2rem' }}>
-          <p>© 2025 Mi Portafolio. Todos los derechos reservados.</p>
+        <footer className="bg-slate-900 p-5 flex flex-col items-center justify-center">
+          
+          <p className="text-center">© 2025 Mi Portafolio. Todos los derechos reservados.</p>
         </footer>
       </body>
     </html>

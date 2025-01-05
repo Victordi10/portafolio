@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect } from "react";
-import { } from 'react';
+import { FaGithub, FaInstagram } from 'react-icons/fa';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
@@ -17,38 +18,55 @@ import Redes from "./Redes";
 export default function Portafolio({ isModalOpen, toggleModal }) {
 
     const bysitePro = {
-        title: 'Bysite Pro',
+        title: 'Bysite Pro - plataforma diseñada para emprendedores.',
         images: '/bysite4.png',
-        description: `Bysite Pro fue una solución integral de desarrollo web diseñada para emprendedores. Ofrecía 
-        plataformas de comercio electrónico personalizadas, combinando un diseño atractivo con funcionalidad robusta.`,
+        description: `Bysite Pro fue una plataforma de comercio electrónico personalizadas, que generaba catalogos web combinando un diseño atractivo con funcionalidades robustas.`,
     };
 
     const boricue = {
-        title: 'Boricue',
+        title: 'Boricue - plataforma para promover la sostenibilidad',
         images: '/boricue1.png',
-        description: `Boricue es una app conceptual destinada a promover la cultura local a través de una plataforma 
-        innovadora. Enfocada en destacar negocios regionales y fomentar el crecimiento de pequeñas empresas.`,
+        description: `Boricue es una plataforma en línea diseñada para promover la sostenibilidad y la economía circular al brindar a los usuarios la oportunidad de intercambiar, donar o vender residuos y desechos materiales. `,
     };
+    const claseA = 'flex items-center justify-center gap-1  rounded-lg shadow-lg  bg-slate-900 p-2 text-gray-100 hover:text-blue-600 transform hover:scale-110 transition-all duration-300 ease-in-out'
     return (
-        <Seccion className="flex flex-col w-full p-4 sm:p-6" titulo={'Proyectos'}>
+        <Seccion id={'proyectos'} className="flex flex-col w-full" titulo={'Proyectos'}>
             {/* Proyecto Bysite Pro */}
-            <div className="flex flex-col my-16 sm:flex-row items-center gap-10">
+            <div className="flex flex-col sm:flex-row items-center gap-5 mb-8">
                 <div className="w-full sm:w-1/2">
-                    <img alt={bysitePro.title} src={bysitePro.images} className="w-full rounded-lg"/>
+                    <img alt={bysitePro.title} src={bysitePro.images} className="w-full rounded-lg" />
                 </div>
                 <div className="w-full sm:w-1/2 space-y-4">
-                    <h3 className="text-2xl font-bold text-white">{bysitePro.title}</h3>
+                    <h3 className="sm:text-2xl text-xl text-start font-bold text-white">{bysitePro.title}</h3>
                     <Parrafo className="text-gray-400 ">{bysitePro.description}</Parrafo>
+                    <div className="flex items-center justify-start gap-3">
+                        <a
+                            href="https://www.linkedin.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={claseA}
+                        >
+                            <FaInstagram className="w-8 h-8" />
+                        </a>
+                        <a
+                            href="https://github.com/Victordi10/bysite.pro"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={claseA}
+                        >
+                            <FaGithub className="w-8 h-8" />
+                        </a>
+                    </div>
                 </div>
             </div>
 
             {/* Proyecto Boricue */}
-            <div className="flex flex-col sm:flex-row items-center gap-10">
+            <div className="flex flex-col sm:flex-row items-center gap-5">
                 <div className="w-full sm:w-1/2">
                     <img alt={boricue.title} src={boricue.images} className="w-full rounded-lg" />
                 </div>
                 <div className="w-full sm:w-1/2 space-y-4">
-                    <h3 className="text-2xl font-bold text-white">{boricue.title}</h3>
+                    <h3 className="sm:text-2xl text-xl font-bold text-white">{boricue.title}</h3>
                     <Parrafo className="text-gray-400">{boricue.description}</Parrafo>
                 </div>
             </div>

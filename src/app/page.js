@@ -28,18 +28,15 @@ export default function Home() {
 
       <Portafolio  isModalOpen={isModalOpen}  toggleModal={toggleModal} />
 
-      {/* <Seccion titulo="Servicios" classTitulo={'mb-4'}>
-        <p className="text-lg sm:text-xl text-center text-gray-300 mb-6">
-          Estos son algunos de los servicios que ofrezco:
-        </p>
-        <div className="flex flex-wrap justify-center gap-6">
+      <Seccion id={'servicios'} titulo="Servicios" classTitulo={'mb-4'}>
+        <div className="flex flex-wrap items-center w-full justify-center gap-6">
           <Servicio titulo={'Aplicaciones Web'} />
           <Servicio titulo={'Sitios Responsivos'} />
           <Servicio titulo={'Tiendas Online'} />
           <Servicio titulo={'Portafolios Digitales'} />
           <Servicio titulo={'Apps Móviles'} />
         </div>
-      </Seccion> */}
+      </Seccion>
 
       <Contacto />
     </>

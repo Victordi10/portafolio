@@ -2,7 +2,7 @@
 
 import React from "react";
 
-export default function Boton({ texto, className }) {
+export default function Boton({ texto, className, onClick }) {
     return (
         <button
             className={`
@@ -23,10 +23,10 @@ export default function Boton({ texto, className }) {
                 focus:ring-purple-500
                 focus:ring-offset-2
                 place-items-center
-                my-6
                 mx-auto  // Esto centra el botón horizontalmente
                 block     
             `}
+            onClick={onClick}
         >
             {texto}
         </button>
