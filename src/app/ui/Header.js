@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import Cover from './Cover';
 
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -59,8 +60,12 @@ export default function Header() {
     };
 
     return (
-        <header className="flex items-center w-full bg-gradient-to-r from-gray-950 via-gray-950 to-gray-950 rounded-lg shadow-lg flex-col sm:flex-row ">
-            <div className="flex items-center justify-between p-2 w-full px-4 sm:px-12 bg-gradient-to-r from-gray-950 via-gray-950 to-gray-950 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500 ease-in-out transform hover:scale-[1.01]">
+        <header className=" bg-[url('/image.jpg')] bg-cover bg-no-repeat items-center bg-center w-full rounded-lg shadow-lg ">
+            <div className='inset-0 bg-gradient-to-b from-[rgba(3,7,18,0.7)]  via-[rgba(3,7,18,0.8)] to-[rgba(3,7,18,0.98)]  flex items-center w-full flex-col '>
+            <div className={`flex items-center justify-between p-2 w-full px-4 sm:px-12 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500 ease-in-out transform hover:scale-[1.01] ${menuOpen
+                        ? 'bg-gray-950'
+                        : ' bg-inherit'
+                    }`}>
                 <Image
                     src="/vy.svg"
                     alt="Desarrollador de software"
@@ -81,13 +86,14 @@ export default function Header() {
 
             {/* Menú con animación */}
             <div
-                className={`sm:hidden w-full bg-gray-950 transition-all duration-300 ease-in-out overflow-hidden ${
-                    menuOpen
+                className={`sm:hidden w-full bg-gray-950 transition-all duration-300 ease-in-out overflow-hidden ${menuOpen
                         ? 'max-h-[500px] opacity-100 scale-y-100'
                         : 'max-h-0 opacity-0 scale-y-0'
-                }`}
+                    }`}
             >
                 <Menu listClass={`flex flex-col w-full space-y-2 min-h-fit p-4`} />
+            </div>
+            <Cover />
             </div>
         </header>
     );

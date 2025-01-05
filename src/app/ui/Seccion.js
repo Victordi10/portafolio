@@ -8,7 +8,7 @@ export default function Seccion({ titulo = false, children, className }) {
         <section
             className={`
                 ${className}
-                bg-gray-950
+                
                 p-2 sm:p-6 
                 w-full 
                 flex 
