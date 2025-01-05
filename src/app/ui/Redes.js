@@ -2,16 +2,16 @@ import React from 'react';
 import { FaLinkedin, FaInstagram, FaYoutube } from 'react-icons/fa';
 
 
-const tamaño = ()=>{
+/* const tamaño = ()=>{
     let ancho = window.innerWidth;
     if(ancho <= 650){
         return 25;
     }else{
         return 25;
     }
-}
+} */
 
-const Redes = ({size = tamaño()}) => {
+const Redes = ({size = 25}) => {
     return (
         <div className="text-end sm:text-start">
             <p className="text-base mb-4 sm:text-lg font-semibold text-gray-300 text-end sm:text-start tracking-widest">Sígueme en</p>
