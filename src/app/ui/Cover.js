@@ -21,6 +21,7 @@ export default function Cover() {
             text-center 
             text-transparent 
             bg-clip-text 
+            mb-4
             sm:m-4
             p-2 sm:p-4 lg:p-14
             bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 
@@ -36,9 +37,9 @@ export default function Cover() {
 
             <div className="flex flex-row-reverse sm:flex-row w-full justify-between items-center p-2 sm:px-6 mt-10">
                 <Redes />
-                <div className="text-start sm:text-end sm:mt-0 sm:order-2 p-2">
+                <div className="text-start sm:text-end sm:mt-0 sm:order-2">
                     <p className="text-base sm:text-lg font-semibold text-gray-300">
-                        Victor Cordoba <span className="text-indigo-600">- Vytor</span>
+                        Victor Cordoba 
                     </p>
                     <p className="text-sm sm:text-base mt-4 text-gray-400">
                         Desarrollador Full Stack

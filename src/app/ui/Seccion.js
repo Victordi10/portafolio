@@ -3,12 +3,12 @@
 import React, { useEffect, useState } from "react";
 import Titulo from "./Titulo";
 
-export default function Seccion({ titulo = false, children, className }) {
+export default function Seccion({ titulo = false, children, className, classTitulo }) {
     return (
         <section
             className={`
                 ${className}
-                
+                h-auto
                 p-2 sm:p-6 
                 w-full 
                 flex 
@@ -25,7 +25,7 @@ export default function Seccion({ titulo = false, children, className }) {
             {titulo && (
                 <Titulo
                     titulo={titulo}
-                    className="mb-6"
+                    className={classTitulo}
                 />
             )}
             <div className="text-white text-lg">{children}</div>

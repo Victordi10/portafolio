@@ -2,18 +2,21 @@
 
 import React from "react";
 
-export default function Titulo({ titulo }) {
+export default function Titulo({ titulo, className }) {
     return (
         <h2 
-            className="
+            className={`
+                ${className}
                 text-4xl text-center 
+                mb-16
                 font-bold text-transparent 
                 bg-clip-text 
-                bg-gradient-to-r from-gray-500 via-slate-500 to-white-500 
+                 sm:text-transparent
+                bg-gradient-to-r  from-gray-100 via-gray-300 to-slate-200
                 shadow-lg 
                 hover:shadow-xl 
                 transition-all duration-500 ease-in-out 
-                transform hover:scale-[1.01]"
+                transform hover:scale-[1.01]`}
         >
             {titulo}
         </h2>

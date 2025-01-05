@@ -61,7 +61,7 @@ export default function Header() {
 
     return (
         <header className=" bg-[url('/image.jpg')] bg-cover bg-no-repeat items-center bg-center w-full rounded-lg shadow-lg ">
-            <div className='inset-0 bg-gradient-to-b from-[rgba(3,7,18,0.7)]  via-[rgba(3,7,18,0.8)] to-[rgba(3,7,18,0.98)]  flex items-center w-full flex-col '>
+            <div className='inset-0 bg-gradient-to-t from-[rgba(3,7,18,0.7)]  via-[rgba(3,7,18,0.8)] to-[rgba(3,7,18,0.98)]  flex items-center w-full flex-col '>
             <div className={`flex items-center justify-between p-2 w-full px-4 sm:px-12 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500 ease-in-out transform hover:scale-[1.01] ${menuOpen
                         ? 'bg-gray-950'
                         : ' bg-inherit'
