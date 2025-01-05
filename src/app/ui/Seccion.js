@@ -9,7 +9,7 @@ export default function Seccion({ titulo = false, children, className }) {
             className={`
                 ${className}
                 bg-gray-950
-                p-6 
+                p-2 sm:p-6 
                 w-full 
                 flex 
                 flex-col
