@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Titulo from "./Titulo";
 
-export default function Seccion({ titulo = false, cover = false, children, className, classTitulo, id}) {
+export default function Seccion({ titulo = false, icon, cover = false, children, className, classTitulo, id}) {
     return (
         <section
             className={`
@@ -29,6 +29,7 @@ export default function Seccion({ titulo = false, cover = false, children, class
                     <Titulo
                         titulo={titulo}
                         className={classTitulo}
+                        icon={icon}
                     />
                 )}
                 {children}

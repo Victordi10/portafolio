@@ -12,7 +12,7 @@ import Seccion from "./Seccion";
 import Boton from "./Boton";
 import Parrafo from "./Parrafo";
 import Redes from "./Redes";
-
+import { FaCode } from "react-icons/fa";
 
 
 export default function Portafolio({ isModalOpen, toggleModal }) {
@@ -30,7 +30,7 @@ export default function Portafolio({ isModalOpen, toggleModal }) {
     };
     const claseA = 'flex items-center justify-center gap-1  rounded-lg shadow-lg  bg-slate-900 p-2 text-gray-100 hover:text-blue-600 transform hover:scale-110 transition-all duration-300 ease-in-out'
     return (
-        <Seccion id={'proyectos'} className="flex flex-col w-full" titulo={'Proyectos'}>
+        <Seccion id={'proyectos'} icon={<FaCode className='h-10 w-10'/>}  className="flex flex-col w-full" titulo={'Proyectos'}>
             {/* Proyecto Bysite Pro */}
             <div className="flex flex-col sm:flex-row items-center gap-5 mb-8">
                 <div className="w-full sm:w-1/2">

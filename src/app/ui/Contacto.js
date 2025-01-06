@@ -1,11 +1,12 @@
 import { FaLinkedin, FaGithub, FaTwitter, FaPhoneAlt, FaEnvelope, FaInstagram } from 'react-icons/fa';
 import Seccion from './Seccion';
+import { MdContactPhone } from "react-icons/md";
 
 const Contacto = () => {
     const correo = 'cordobav444@gmail.com'
     const claseA = 'flex items-center space-x-2 text-gray-100 hover:text-slate-600 transition'
     return (
-        <Seccion id={'contacto'} titulo="Contacto" cover={true} className={`bg-cover mb-0 p-0 bg-center bg-[url('/contacto.jpeg')] sm:bg-[url('')] w-full`}>
+        <Seccion id={'contacto'} icon={<MdContactPhone className='h-10 w-10'/>} titulo="Contacto" cover={true} className={`bg-cover mb-0 p-0 bg-center bg-[url('/contacto.jpeg')] sm:bg-[url('')] w-full`}>
             <div className="flex flex-col w-full sm:flex-row ">
                 {/* Contenedor izquierdo */}
                 <div className="sm:w-1/2 justify-center items-center hidden sm:block ">

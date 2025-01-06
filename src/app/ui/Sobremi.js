@@ -5,10 +5,11 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Seccion from "./Seccion";
 import Parrafo from "./Parrafo";
+import { FaUserCheck } from "react-icons/fa";
 
 const Sobremi = () => {
     return (
-        <Seccion id={'sobre-mi'} titulo="¿Quien soy?"  classTitulo={''} className={`relative `}>
+        <Seccion id={'sobre-mi'} icon={<FaUserCheck className='h-10 w-10'/>} titulo="¿Quien soy?"  classTitulo={''} className={`relative `}>
             <div className='flex flex-col sm:flex-row items-center justify-center sm:space-x-16'>
                 <Image
                     src="/foto.jpeg"
