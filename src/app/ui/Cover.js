@@ -10,17 +10,8 @@ import Redes from "./Redes";
 
 export default function Cover() {
     const correo = 'cordobav444@gmail.com'
-    const [isClient, setIsClient] = useState(false);
 
-    useEffect(() => {
-        setIsClient(true); // Cuando el componente se monta, actualiza a `true` porque ya estamos en el cliente.
-    }, []);
 
-    const contratarme = () => {
-        if (isClient) {
-            window.open(`mailto:${correo}?subject=¡Quiero contactarte!&body=Hola, Victor.`);
-        }
-    };
     return (
         <Seccion id={'inicio'} className="h-[50vh] md:h-[60vh] py-10 relative min-h-fit max-h-screen flex flex-col justify-center items-center">
             <h1
@@ -62,7 +53,36 @@ export default function Cover() {
             md:absolute md:top-1/2 md:left-1/2 lmd:transform md:-translate-x-1/2 md:-translate-y-[25%] 
           "
             >
-                <Boton texto={'Contratame'} onClick={contratarme}/>
+                <button
+                    className={`
+                bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 
+                text-white 
+                font-bold 
+                py-3 px-6 
+                rounded-lg 
+                shadow-md 
+                hover:shadow-xl 
+                hover:scale-105 
+                transition-all 
+                duration-300 
+                ease-in-out 
+                focus:outline-none 
+                focus:ring-2 
+                focus:ring-purple-500
+                focus:ring-offset-2
+                place-items-center
+                mx-auto  
+                block     
+            `}
+                >
+                    <a
+                        href={`mailto:${correo}?subject=¡Quiero contactarte!&body=Hola, Victor.`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Enviar correo
+                    </a>
+                </button>
                 <RiArrowDownWideFill className="text-4xl text-white" size={30} color="#fff" />
             </div>
         </Seccion>
