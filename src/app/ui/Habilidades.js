@@ -6,7 +6,7 @@ import {
     SiReact, SiReactrouter, SiNodedotjs, SiMysql, SiFirebase,
     SiNextdotjs, SiTailwindcss, SiGit
 } from 'react-icons/si';
-import { FaPenNib, FaVideo } from 'react-icons/fa';
+import { FaPenNib, FaVideo, FaTools } from 'react-icons/fa';
 import Seccion from './Seccion';
 
 export default function Habilidades() {
@@ -47,6 +47,7 @@ export default function Habilidades() {
         <Seccion
             id="habilidades"
             titulo="Habilidades"
+            icon={<FaTools />}
             className="bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-white py-14"
         >
             <motion.div

@@ -7,6 +7,9 @@ import Seccion from "./Seccion";
 import Image from 'next/image';
 import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
 import { RiArrowDownWideFill } from "react-icons/ri";
+import { misContactos } from '../constants/contacto';
+
+
 export default function Cover() {
     const correo = 'cordobav444@gmail.com';
 
@@ -95,7 +98,7 @@ export default function Cover() {
                         transition={{ delay: 1, duration: 0.6 }}
                     >
                         <a
-                            href="https://www.linkedin.com"
+                            href={misContactos.linkedin}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 text-sm justify-center p-2 rounded-lg bg-gray-800 text-gray-300 hover:bg-blue-700 hover:text-white transition-all duration-300"
@@ -123,7 +126,7 @@ export default function Cover() {
 
                         </motion.div>
                         <a
-                            href="https://github.com"
+                            href={misContactos.github}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center text-sm gap-2 justify-center p-2 rounded-lg bg-gray-800 text-gray-300 hover:bg-gray-600 hover:text-white transition-all duration-300"

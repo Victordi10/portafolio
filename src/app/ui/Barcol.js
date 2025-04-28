@@ -4,9 +4,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import Seccion from './Seccion';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { FaExternalLinkAlt, FaGithub, FaPlay } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaBriefcase, FaPlay } from 'react-icons/fa';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
-
+import { misContactos } from '../constants/contacto';
 // Sample images for the slider - replace with your actual images
 const images = [
     '/barcol1.jpeg',
@@ -49,8 +49,9 @@ export default function Barcol() {
 
     return (
         <Seccion
-            id="proyecto-barcol"
+            id="barcol"
             titulo="Mi experiencia"
+            icon={<FaBriefcase />}
             className="bg-gradient-to-b from-gray-950 to-gray-900 text-white py-20"
         >
             <div className="flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto px-8">
@@ -77,7 +78,7 @@ export default function Barcol() {
                                         alt={`Barcol App Preview ${index + 1}`}
                                         width={250}
                                         height={150}
-                                        className=" object-contain"
+                                        className=" object-contain rounded-xl shadow-lg transition-transform duration-500 ease-in-out"
                                         priority={index === 0}
                                     />
                                 </div>
@@ -181,14 +182,14 @@ export default function Barcol() {
                     {/* Call-to-action buttons */}
                     <div className="flex flex-wrap gap-4 mt-4">
                         <a
-                            href="https://barcolapp.up.railway.app/u/vic123"
+                            href={misContactos.barcolLink}
                             className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-lg hover:scale-105 transition-all duration-300 shadow-lg shadow-purple-700/30 text-base"
                         >
                             Ver Demo <FaExternalLinkAlt size={18}/>
                         </a>
 
                         <a
-                            href="#github"
+                            href={misContactos.barcolPlay}
                             className="inline-flex items-center gap-2 bg-gray-800 text-white border border-gray-700 px-6 py-3 rounded-lg hover:bg-gray-700 transition-all duration-300 text-base"
                         >
                             Ver App <FaPlay size={18} />
