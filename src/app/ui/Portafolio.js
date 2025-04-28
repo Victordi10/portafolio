@@ -1,111 +1,143 @@
 'use client';
-import React, { useState, useEffect } from "react";
-import { FaGithub, FaInstagram } from 'react-icons/fa';
-
-import Link from 'next/link';
+import React from "react";
+import { FaGithub, FaInstagram, FaCode, FaExternalLinkAlt } from 'react-icons/fa';
 import Image from 'next/image';
-import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
-import { FiPlay } from "react-icons/fi";
-import { TfiControlPause } from "react-icons/tfi";
+import { motion } from 'framer-motion';
 import { IoMdClose } from "react-icons/io";
 import Seccion from "./Seccion";
-import Boton from "./Boton";
 import Parrafo from "./Parrafo";
-import Redes from "./Redes";
-import { FaCode } from "react-icons/fa";
-
 
 export default function Portafolio({ isModalOpen, toggleModal }) {
+    // Projects data
+    const projects = [
+        {
+            id: 'bysite-pro',
+            title: 'Bysite Pro',
+            subtitle: 'Plataforma para emprendedores',
+            image: '/bysite4.png',
+            description: `Bysite Pro fue una plataforma de comercio electrónico personalizada, que generaba catálogos web combinando un diseño atractivo con funcionalidades robustas.`,
+            links: [
+                { icon: FaInstagram, url: 'https://www.linkedin.com', label: 'Instagram' },
+                { icon: FaGithub, url: 'https://github.com/Victordi10/bysite.pro', label: 'GitHub' }
+            ],
+            tags: ['E-commerce', 'Web', 'Catálogos']
+        },
+        {
+            id: 'boricue',
+            title: 'Boricue',
+            subtitle: 'Plataforma para promover la sostenibilidad',
+            image: '/boricue1.png',
+            description: `Boricue es una plataforma en línea diseñada para promover la sostenibilidad y la economía circular al brindar a los usuarios la oportunidad de intercambiar, donar o vender residuos y desechos materiales.`,
+            links: [],
+            tags: ['Sostenibilidad', 'Economía circular', 'Intercambio']
+        }
+    ];
 
-    const bysitePro = {
-        title: 'Bysite Pro - plataforma diseñada para emprendedores.',
-        images: '/bysite4.png',
-        description: `Bysite Pro fue una plataforma de comercio electrónico personalizadas, que generaba catalogos web combinando un diseño atractivo con funcionalidades robustas.`,
+    // Animation variants
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2
+            }
+        }
     };
 
-    const boricue = {
-        title: 'Boricue - plataforma para promover la sostenibilidad',
-        images: '/boricue1.png',
-        description: `Boricue es una plataforma en línea diseñada para promover la sostenibilidad y la economía circular al brindar a los usuarios la oportunidad de intercambiar, donar o vender residuos y desechos materiales. `,
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.4 }
+        }
     };
-    const claseA = 'flex items-center justify-center gap-1  rounded-lg shadow-lg  bg-slate-900 p-2 text-gray-100 hover:text-blue-600 transform hover:scale-110 transition-all duration-300 ease-in-out'
+
     return (
-        <Seccion id={'proyectos'} icon={<FaCode className='h-10 w-10'/>}  className="flex flex-col w-full" titulo={'Proyectos'}>
-            {/* Proyecto Bysite Pro */}
-            <div className="flex flex-col sm:flex-row items-center gap-5 mb-8">
-                <div className="w-full sm:w-1/2">
-                    <img alt={bysitePro.title} src={bysitePro.images} className="w-full rounded-lg" />
-                </div>
-                <div className="w-full sm:w-1/2 space-y-4">
-                    <h3 className="sm:text-2xl text-xl text-start font-bold text-white">{bysitePro.title}</h3>
-                    <Parrafo className="text-gray-400 ">{bysitePro.description}</Parrafo>
-                    <div className="flex items-center justify-start gap-3">
-                        <a
-                            href="https://www.linkedin.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={claseA}
-                        >
-                            <FaInstagram className="w-8 h-8" />
-                        </a>
-                        <a
-                            href="https://github.com/Victordi10/bysite.pro"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={claseA}
-                        >
-                            <FaGithub className="w-8 h-8" />
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            {/* Proyecto Boricue */}
-            <div className="flex flex-col sm:flex-row items-center gap-5">
-                <div className="w-full sm:w-1/2">
-                    <img alt={boricue.title} src={boricue.images} className="w-full rounded-lg" />
-                </div>
-                <div className="w-full sm:w-1/2 space-y-4">
-                    <h3 className="sm:text-2xl text-xl font-bold text-white">{boricue.title}</h3>
-                    <Parrafo className="text-gray-400">{boricue.description}</Parrafo>
-                </div>
-            </div>
-
-
-
-            {/* Modal para zoom */}
-            {isModalOpen && (
-                <div
-                    className="flex h-[80vh] w-full fixed inset-0 bg-black bg-opacity-75 items-center justify-center z-50"
-                    onClick={toggleModal}
-                >
-
-                    <button
-                        onClick={toggleModal}
-                        className="bg-red-800 text-white px-3 py-1 rounded hover:bg-gray-700 transition"
+        <Seccion
+            id="proyectos"
+            icon={<FaCode className="h-8 w-8 text-blue-400" />}
+            className=""
+            titulo="Proyectos Adicionales"
+        >
+            <motion.div
+                className="space-y-12 max-w-5xl mx-auto"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+            >
+                {projects.map((project, index) => (
+                    <motion.div
+                        key={project.id}
+                        className="flex flex-col sm:flex-row items-center gap-6 p-4 sm:p-6 rounded-xl bg-gray-800/40 border border-gray-700/50 hover:border-gray-600/50 transition-all duration-300"
+                        variants={itemVariants}
                     >
-                        <IoMdClose size={35} color="#fff" />
-                    </button>
+                        {/* Project Image */}
+                        <div className="w-full sm:w-2/5 overflow-hidden rounded-lg">
+                            <div className="relative group cursor-pointer">
+                                <Image
+                                    src={project.image}
+                                    alt={project.title}
+                                    width={500}
+                                    height={300}
+                                    className="w-full h-auto object-cover rounded-lg transition-transform duration-500 group-hover:scale-105"
+                                />
+                                <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                                    <FaExternalLinkAlt className="text-white text-xl" />
+                                </div>
+                            </div>
+                        </div>
 
-                    {/*  {images[slide].endsWith('.mp4') ? (
-                        <video
-                            src={`/${images[slide]}`}
-                            className="max-w-full max-h-full"
-                            autoPlay
-                            muted
-                            loop
-                        />
-                    ) : (
-                        <Image
-                            src={`/${images[slide]}`}
-                            fill
-                            alt={`Slide ${slide}`}
-                            className="object-contain"
-                        />
-                    )} */}
-                </div>
-            )}
+                        {/* Project Info */}
+                        <div className="w-full sm:w-3/5 space-y-3">
+                            <div>
+                                <h3 className="text-xl font-semibold text-blue-300">{project.title}</h3>
+                                <p className="text-sm text-gray-400">{project.subtitle}</p>
+                            </div>
+
+                            <Parrafo className="text-gray-300 text-sm leading-relaxed">
+                                {project.description}
+                            </Parrafo>
+
+                            {/* Tags */}
+                            <div className="flex flex-wrap gap-2 mt-2">
+                                {project.tags.map((tag, tagIndex) => (
+                                    <span
+                                        key={tagIndex}
+                                        className="px-2 py-1 text-xs rounded bg-gray-700/70 text-gray-300"
+                                    >
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+
+                            {/* Links */}
+                            {project.links.length > 0 && (
+                                <div className="flex items-center gap-3 pt-2">
+                                    {project.links.map((link, linkIndex) => {
+                                        const Icon = link.icon;
+                                        return (
+                                            <a
+                                                key={linkIndex}
+                                                href={link.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center justify-center p-2 rounded-lg bg-gray-700/70 text-gray-300 hover:text-blue-400 hover:bg-gray-700 transition-all duration-200"
+                                                aria-label={link.label}
+                                            >
+                                                <Icon className="w-5 h-5" />
+                                            </a>
+                                        );
+                                    })}
+                                </div>
+                            )}
+                        </div>
+                    </motion.div>
+                ))}
+            </motion.div>
+
+            {/* Modal for image zoom */}
         </Seccion>
-
     );
 }
