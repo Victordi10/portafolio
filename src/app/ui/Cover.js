@@ -16,7 +16,7 @@ export default function Cover() {
     return (
         <Seccion
             id="inicio"
-            className="min-h-[70vh] py-8 relative flex flex-col justify-center items-center overflow-hidden"
+            className="min-h-[70vh] pb-4 md:py-8 py-4 relative flex flex-col justify-center items-center overflow-hidden"
         >
             {/* Background elements */}
             <div className="absolute inset-0 -z-10">
@@ -25,9 +25,9 @@ export default function Cover() {
             </div>
 
             {/* Main content */}
-            <div className="container mx-auto px-6 max-w-6xl">
+            <div className="container mx-auto px-2 md:px-6 max-w-6xl">
                 <motion.div
-                    className="flex flex-col gap-8 md:gap-4 items-center justify-center text-center"
+                    className="flex flex-col gap-6 md:gap-4 items-center justify-center text-center"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
@@ -79,7 +79,7 @@ export default function Cover() {
 
                     {/* Bio paragraph */}
                     <motion.p
-                        className="text-gray-300 max-w-2xl mx-auto text-center text-lg leading-relaxed"
+                        className="text-gray-300 max-w-2xl mx-auto text-justify md:text-center text-lg leading-relaxed"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.6, duration: 0.8 }}
@@ -92,7 +92,7 @@ export default function Cover() {
                     {/* CTA buttons */}
 
                     <motion.div
-                        className="flex justify-between items-center mt.4 w-full gap-4"
+                        className="flex justify-between items-center mt-4 w-full gap-4"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 1, duration: 0.6 }}

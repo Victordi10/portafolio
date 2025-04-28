@@ -15,18 +15,16 @@ const Contacto = () => {
 
     return (
         <Seccion
-            titulo="Contáctame"
-            cover={true}
-            icon={<FaEnvelope />}
-            className="bg-cover bg-fixed bg-center bg-[url('/contacto.jpeg')] w-full flex justify-center items-center py-24"
+            
+            className="bg-cover  bg-fixed bg-center bg-[url('/contacto.jpeg')] w-full flex justify-center  items-center"
             id="contacto"
         >
-            <div className="w-full max-w-4xl mx-auto">
-                <div className="bg-slate-900/80 backdrop-blur-sm p-8 md:p-12 rounded-3xl shadow-2xl border border-slate-700/50">
+            <div className="w-full max-w-4xl mx-auto ">
+                <div className="bg-slate-900/80 backdrop-blur-sm p-4 md:p-12 rounded-3xl shadow-2xl border  border-slate-700/50">
                     <div className="flex flex-col md:flex-row gap-10">
                         {/* Left column - Info */}
                         <div className="flex-1 space-y-6">
-                            <h2 className="text-4xl font-bold text-white">¿Hablamos?</h2>
+                            <h2 className="text-4xl font-bold text-white">Hablemos</h2>
                             <p className="text-gray-300 text-lg max-w-md">
                                 Estoy disponible para colaborar en proyectos, oportunidades laborales o
                                 simplemente intercambiar ideas creativas.

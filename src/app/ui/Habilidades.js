@@ -48,10 +48,10 @@ export default function Habilidades() {
             id="habilidades"
             titulo="Habilidades"
             icon={<FaTools />}
-            className="bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-white py-14"
+            className="bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-white p-0  py-10"
         >
             <motion.div
-                className="max-w-5xl mx-auto px-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4"
+                className="max-w-5xl mx-auto md:px-6 px-2 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4"
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
@@ -76,15 +76,15 @@ export default function Habilidades() {
             </motion.div>
 
             {/* Optional compact stats row */}
-            <div className="mt-10 max-w-4xl mx-auto grid grid-cols-4 gap-2 text-center px-6">
+            <div className="mt-5 max-w-4xl mx-auto grid grid-cols-4 gap-2 text-center px-0 md:px-6">
                 {[
                     { value: '4+', label: 'Años' },
                     { value: '20+', label: 'Proyectos' },
                     { value: '10+', label: 'Tecnologías' },
                     { value: '100%', label: 'Dedicación' },
                 ].map((stat, index) => (
-                    <div key={index} className="p-3 rounded-lg bg-gray-800/50">
-                        <h4 className="text-lg font-bold text-indigo-400">{stat.value}</h4>
+                    <div key={index} className=" flex flex-col items-center p-3 rounded-lg bg-gray-800/50">
+                        <h4 className="text-base font-bold text-indigo-400">{stat.value}</h4>
                         <p className="text-gray-400 text-xs">{stat.label}</p>
                     </div>
                 ))}

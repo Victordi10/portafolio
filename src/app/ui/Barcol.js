@@ -51,10 +51,11 @@ export default function Barcol() {
         <Seccion
             id="barcol"
             titulo="Mi experiencia"
+            classTitulo={'text-3xl md:text-4xl'}
             icon={<FaBriefcase />}
-            className="bg-gradient-to-b from-gray-950 to-gray-900 text-white py-20"
+            className="bg-gradient-to-b from-gray-950 to-gray-950 text-white px-0 md:px-2 py-4"
         >
-            <div className="flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto px-8">
+            <div className="flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto  md:px-8">
                 {/* Modern Image Slider */}
                 <div
                     className="w-full md:w-[40%] relative overflow-hidden rounded-2xl shadow-2xl"
@@ -135,7 +136,7 @@ export default function Barcol() {
                         <h3 className="text-3xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">¿Qué es Barcol?</h3>
                     </div>
 
-                    <p className="text-gray-300 leading-relaxed text-lg">
+                    <p className="text-gray-300 leading-relaxed text-justify md:text-left text-lg">
                         Barcol es una aplicación innovadora que revoluciona la conexión entre barberos y clientes.
                         Con una interfaz intuitiva y moderna, facilita la gestión de citas y la exhibición de trabajos
                         profesionales para inspirar a la comunidad.
